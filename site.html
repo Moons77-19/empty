@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Azur Débarras & Nettoyage</title>
+<meta name="description" content="Débarras de maison, appartement, cave, grenier et nettoyage complet de logements encombrés ou touchés par le syndrome de Diogène." />
+<style>
+:root {
+--bg: #f3f6fb;
+--bg-2: #edf3f9;
+--surface: rgba(255, 255, 255, 0.8);
+--surface-solid: #ffffff;
+--text: #172033;
+--muted: #5e6b7f;
+--primary: #0f3b66;
+--primary-2: #123f6c;
+--secondary: #2f6f5e;
+--border: rgba(148, 163, 184, 0.18);
+--shadow: 0 20px 50px rgba(15, 59, 102, 0.12);
+--shadow-soft: 0 12px 30px rgba(15, 59, 102, 0.07);
+--radius-xl: 30px;
+--radius-lg: 24px;
+--radius-md: 18px;
+--max: 1180px;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+font-family: Inter, Arial, Helvetica, sans-serif;
+color: var(--text);
+line-height: 1.65;
+background:
+radial-gradient(circle at top left, rgba(15,59,102,0.10), transparent 28%),
+radial-gradient(circle at top right, rgba(47,111,94,0.10), transparent 24%),
+linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+img {
+max-width: 100%;
+display: block;
+}
+
+.container {
+width: min(var(--max), 92%);
+margin: 0 auto;
+}
+
+.eyebrow {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+padding: 10px 15px;
+border-radius: 999px;
+background: rgba(47, 111, 94, 0.10);
+color: var(--secondary);
+font-weight: 800;
+margin-bottom: 18px;
+backdrop-filter: blur(10px);
+}
+
+.eyebrow-dot {
+width: 9px;
+height: 9px;
+border-radius: 50%;
+background: var(--secondary);
+box-shadow: 0 0 0 6px rgba(47,111,94,0.10);
+}
+
+/* HEADER */
+header {
+position: sticky;
+top: 0;
+z-index: 1000;
+background: rgba(255, 255, 255, 0.72);
+backdrop-filter: blur(16px);
+border-bottom: 1px solid rgba(148,163,184,0.15);
+}
+
+.topbar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 18px;
+padding: 16px 0;
+}
+
+.brand {
+display: flex;
+align-items: center;
+gap: 12px;
+font-weight: 900;
+color: var(--primary);
+font-size: 1.08rem;
+white-space: nowrap;
+letter-spacing: -0.01em;
+}
+
+.brand-mark {
+width: 46px;
+height: 46px;
+border-radius: 16px;
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+box-shadow: 0 12px 24px rgba(15, 59, 102, 0.2);
+overflow: hidden;
+flex: 0 0 46px;
+display: grid;
+place-items: center;
+}
+
+.brand-mark svg {
+width: 28px;
+height: 28px;
+fill: none;
+stroke: white;
+stroke-width: 2.2;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+
+nav {
+display: flex;
+align-items: center;
+gap: 22px;
+}
+
+nav a {
+color: var(--text);
+font-weight: 650;
+transition: 0.22s ease;
+opacity: 0.92;
+}
+
+nav a:hover {
+color: var(--primary);
+opacity: 1;
+}
+
+.nav-cta {
+background: linear-gradient(135deg, var(--primary), var(--primary-2));
+color: #fff;
+padding: 12px 18px;
+border-radius: 999px;
+font-weight: 800;
+box-shadow: var(--shadow);
+transition: 0.25s ease;
+}
+
+.nav-cta:hover {
+transform: translateY(-1px);
+}
+
+.menu-btn {
+display: none;
+border: 1px solid rgba(148,163,184,0.24);
+background: #fff;
+width: 46px;
+height: 46px;
+border-radius: 14px;
+cursor: pointer;
+align-items: center;
+justify-content: center;
+gap: 5px;
+flex-direction: column;
+box-shadow: 0 10px 20px rgba(15, 59, 102, 0.05);
+}
+
+.menu-btn span {
+width: 20px;
+height: 2px;
+background: var(--text);
+border-radius: 999px;
+}
+
+.mobile-nav {
+display: none;
+padding: 0 0 16px;
+}
+
+.mobile-nav a {
+display: block;
+padding: 12px 0;
+border-top: 1px solid rgba(148,163,184,0.18);
+font-weight: 650;
+color: var(--text);
+}
+
+.mobile-nav.open {
+display: block;
+}
+
+/* HERO */
+.hero {
+padding: 76px 0 42px;
+}
+
+.hero-grid {
+display: grid;
+grid-template-columns: 1.02fr 0.98fr;
+gap: 36px;
+align-items: center;
+}
+
+h1 {
+font-size: clamp(2.4rem, 5vw, 4.9rem);
+line-height: 1.03;
+color: var(--primary);
+margin-bottom: 18px;
+letter-spacing: -0.05em;
+}
+
+.hero p {
+color: var(--muted);
+font-size: 1.05rem;
+max-width: 640px;
+margin-bottom: 26px;
+}
+
+.hero-actions {
+display: flex;
+gap: 14px;
+flex-wrap: wrap;
+margin-bottom: 18px;
+}
+
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+padding: 14px 20px;
+border-radius: 999px;
+font-weight: 850;
+transition: 0.25s ease;
+border: 1px solid transparent;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, var(--primary), var(--primary-2));
+color: white;
+box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+transform: translateY(-2px);
+}
+
+.btn-secondary {
+background: rgba(255,255,255,0.86);
+color: var(--primary);
+border-color: rgba(15,59,102,0.14);
+}
+
+.btn-secondary:hover {
+transform: translateY(-2px);
+border-color: var(--primary);
+}
+
+.hero-badges {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-top: 18px;
+}
+
+.chip {
+padding: 10px 14px;
+border-radius: 999px;
+background: rgba(255,255,255,0.82);
+border: 1px solid rgba(148,163,184,0.18);
+color: var(--muted);
+font-weight: 650;
+box-shadow: 0 8px 20px rgba(15,59,102,0.04);
+}
+
+/* HERO CARD / SLIDER */
+.hero-card {
+position: relative;
+border-radius: 32px;
+overflow: hidden;
+background: var(--surface-solid);
+box-shadow: var(--shadow);
+min-height: 560px;
+}
+
+.slider {
+position: relative;
+width: 100%;
+height: 560px;
+}
+
+.slide {
+position: absolute;
+inset: 0;
+opacity: 0;
+transition: opacity 0.9s ease;
+}
+
+.slide.active {
+opacity: 1;
+}
+
+.slide img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+filter: saturate(1.05);
+}
+
+.hero-card-overlay {
+position: absolute;
+left: 16px;
+right: 16px;
+bottom: 16px;
+background: rgba(255,255,255,0.88);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(255,255,255,0.45);
+border-radius: 22px;
+padding: 18px;
+box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+z-index: 2;
+}
+
+.hero-card-overlay strong {
+display: block;
+color: var(--primary);
+margin-bottom: 6px;
+font-size: 1.05rem;
+}
+
+.slider-dots {
+position: absolute;
+bottom: 98px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 8px;
+z-index: 3;
+}
+
+.dot {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+border: none;
+background: rgba(255,255,255,0.55);
+cursor: pointer;
+transition: 0.25s ease;
+}
+
+.dot.active {
+background: #fff;
+transform: scale(1.2);
+}
+
+/* SECTIONS */
+section {
+padding: 74px 0;
+}
+
+.section-title {
+font-size: clamp(1.85rem, 3vw, 2.7rem);
+color: var(--primary);
+margin-bottom: 10px;
+letter-spacing: -0.03em;
+}
+
+.section-subtitle {
+color: var(--muted);
+max-width: 850px;
+margin-bottom: 28px;
+}
+
+.grid-3 {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.grid-2 {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 22px;
+}
+
+.card {
+background: var(--surface);
+border: 1px solid rgba(148,163,184,0.16);
+border-radius: var(--radius-lg);
+padding: 24px;
+box-shadow: var(--shadow-soft);
+transition: 0.28s ease;
+backdrop-filter: blur(10px);
+}
+
+.card:hover {
+transform: translateY(-6px);
+box-shadow: var(--shadow);
+}
+
+.card h3 {
+color: var(--primary);
+margin-bottom: 10px;
+font-size: 1.12rem;
+}
+
+.card p {
+color: var(--muted);
+}
+
+.icon {
+width: 56px;
+height: 56px;
+border-radius: 18px;
+background: linear-gradient(135deg, rgba(15,59,102,0.12), rgba(47,111,94,0.12));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.35rem;
+margin-bottom: 14px;
+}
+
+.service {
+position: relative;
+overflow: hidden;
+}
+
+.service::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 4px;
+background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+/* STATS */
+.stats {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 16px;
+}
+
+.stat {
+background: rgba(255,255,255,0.86);
+border: 1px solid rgba(148,163,184,0.16);
+border-radius: 22px;
+padding: 22px;
+text-align: center;
+box-shadow: var(--shadow-soft);
+}
+
+.stat strong {
+display: block;
+font-size: 2rem;
+color: var(--primary);
+margin-bottom: 6px;
+}
+
+.stat span {
+color: var(--muted);
+font-weight: 650;
+}
+
+/* BEFORE AFTER */
+.before-after {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 22px;
+}
+
+.photo {
+overflow: hidden;
+padding: 0;
+}
+
+.photo img {
+height: 330px;
+width: 100%;
+object-fit: cover;
+transition: transform 0.55s ease;
+}
+
+.photo:hover img {
+transform: scale(1.05);
+}
+
+.photo-caption {
+padding: 18px 20px 22px;
+}
+
+.photo-caption strong {
+display: block;
+color: var(--primary);
+margin-bottom: 6px;
+}
+
+/* TESTIMONIALS */
+.quote {
+position: relative;
+}
+
+.quote::before {
+content: "“";
+position: absolute;
+top: 10px;
+right: 18px;
+font-size: 4rem;
+line-height: 1;
+color: rgba(15,59,102,0.10);
+font-family: Georgia, serif;
+}
+
+.stars {
+color: #f5b301;
+font-size: 1rem;
+margin-bottom: 12px;
+letter-spacing: 2px;
+}
+
+/* CONTACT */
+.contact-wrap {
+background: linear-gradient(135deg, var(--primary), var(--primary-2));
+color: white;
+border-radius: 34px;
+padding: 30px;
+box-shadow: var(--shadow);
+}
+
+.contact-wrap .section-title,
+.contact-wrap .section-subtitle {
+color: white;
+}
+
+.contact-grid {
+display: grid;
+grid-template-columns: 0.95fr 1.05fr;
+gap: 22px;
+margin-top: 18px;
+}
+
+.contact-box,
+.form-box {
+background: rgba(255,255,255,0.09);
+border: 1px solid rgba(255,255,255,0.14);
+border-radius: 24px;
+padding: 22px;
+}
+
+.contact-info p {
+margin-bottom: 10px;
+color: rgba(255,255,255,0.94);
+}
+
+.contact-list {
+list-style: none;
+margin-top: 14px;
+display: grid;
+gap: 10px;
+}
+
+.contact-list li {
+display: flex;
+align-items: center;
+gap: 10px;
+color: rgba(255,255,255,0.94);
+}
+
+.check {
+width: 22px;
+height: 22px;
+border-radius: 50%;
+background: rgba(255,255,255,0.18);
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex: 0 0 22px;
+}
+
+.form {
+display: grid;
+gap: 12px;
+}
+
+.form-row {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 12px;
+}
+
+.form input,
+.form select,
+.form textarea {
+width: 100%;
+padding: 14px 16px;
+border-radius: 14px;
+border: none;
+outline: none;
+font: inherit;
+background: rgba(255,255,255,0.96);
+color: var(--text);
+box-shadow: inset 0 0 0 1px rgba(148,163,184,0.14);
+}
+
+.form textarea {
+min-height: 130px;
+resize: vertical;
+}
+
+.form button {
+width: fit-content;
+padding: 14px 20px;
+border: none;
+border-radius: 999px;
+background: var(--secondary);
+color: white;
+font-weight: 850;
+cursor: pointer;
+transition: 0.25s ease;
+}
+
+.form button:hover {
+transform: translateY(-2px);
+filter: brightness(1.03);
+}
+
+footer {
+padding: 28px 0 44px;
+color: var(--muted);
+text-align: center;
+}
+
+.whatsapp {
+position: fixed;
+right: 18px;
+bottom: 18px;
+width: 58px;
+height: 58px;
+border-radius: 50%;
+background: #25d366;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.45rem;
+box-shadow: 0 16px 30px rgba(37, 211, 102, 0.35);
+z-index: 1200;
+transition: 0.25s ease;
+}
+
+.whatsapp:hover {
+transform: translateY(-3px) scale(1.03);
+}
+
+/* REVEAL */
+.fade-up {
+animation: fadeUp 0.9s ease both;
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(18px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+.hero-grid,
+.contact-grid,
+.grid-3,
+.grid-2,
+.before-after,
+.stats {
+grid-template-columns: 1fr;
+}
+
+nav {
+display: none;
+}
+
+.menu-btn {
+display: inline-flex;
+}
+
+.hero-card,
+.slider {
+min-height: 430px;
+height: 430px;
+}
+
+.slider-dots {
+bottom: 90px;
+}
+}
+
+@media (max-width: 640px) {
+.topbar {
+gap: 12px;
+}
+
+.brand {
+font-size: 1rem;
+}
+
+.hero {
+padding-top: 46px;
+}
+
+.form-row {
+grid-template-columns: 1fr;
+}
+
+.contact-wrap {
+padding: 18px;
+}
+
+.whatsapp {
+width: 54px;
+height: 54px;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+<div class="topbar">
+<a href="#accueil" class="brand" aria-label="Azur Débarras & Nettoyage">
+<span class="brand-mark" aria-hidden="true">
+<svg viewBox="0 0 24 24">
+<path d="M4 11.5L12 5l8 6.5"></path>
+<path d="M6 10.8V19h12v-8.2"></path>
+<path d="M10 19v-5h4v5"></path>
+<path d="M9.2 7.5l2.8-2.2 2.8 2.2"></path>
+</svg>
+</span>
+<span>Azur Débarras & Nettoyage</span>
+</a>
+
+<nav>
+<a href="#services">Services</a>
+<a href="#apropos">À propos</a>
+<a href="#resultats">Avant / Après</a>
+<a href="#avis">Avis</a>
+<a href="#contact">Contact</a>
+<a class="nav-cta" href="#contact">Demander un devis</a>
+</nav>
+
+<button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+
+<div class="mobile-nav" id="mobileNav">
+<a href="#services">Services</a>
+<a href="#apropos">À propos</a>
+<a href="#resultats">Avant / Après</a>
+<a href="#avis">Avis</a>
+<a href="#contact">Contact</a>
+<a href="#contact">Demander un devis</a>
+</div>
+</div>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+<div class="container hero-grid">
+<div class="fade-up">
+<div class="eyebrow"><span class="eyebrow-dot"></span> Intervention rapide, discrète et haut de gamme</div>
+<h1>Débarras de maison et nettoyage complet de logements</h1>
+<p>
+<strong>Azur Débarras & Nettoyage</strong> vous accompagne pour vider une maison, débarrasser un appartement,
+évacuer les encombrants et remettre en état des logements très encombrés ou touchés par le syndrome de Diogène.
+Nous intervenons avec sérieux, respect et efficacité.
+</p>
+
+<div class="hero-actions">
+<a class="btn btn-primary" href="#contact">Demander un devis gratuit</a>
+<a class="btn btn-secondary" href="#services">Découvrir nos services</a>
+</div>
+
+<div class="hero-badges">
+<div class="chip">Devis gratuit</div>
+<div class="chip">Intervention discrète</div>
+<div class="chip">Travail soigné</div>
+<div class="chip">Réponse rapide</div>
+</div>
+</div>
+
+<div class="hero-card fade-up">
+<div class="slider" id="slider">
+<div class="slide active">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80" alt="Intérieur propre et moderne" />
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1400&q=80" alt="Pièce lumineuse et élégante" />
+</div>
+<div class="slide">
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80" alt="Maison propre après intervention" />
+</div>
+</div>
+
+<div class="slider-dots" id="sliderDots">
+<button class="dot active" aria-label="Diapositive 1"></button>
+<button class="dot" aria-label="Diapositive 2"></button>
+<button class="dot" aria-label="Diapositive 3"></button>
+</div>
+
+<div class="hero-card-overlay">
+<strong>Un service fiable et rassurant</strong>
+<span>Débarras, tri, évacuation et nettoyage approfondi</span>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container stats">
+<div class="stat">
+<strong>24h</strong>
+<span>Réponse rapide</span>
+</div>
+<div class="stat">
+<strong>100%</strong>
+<span>Devis gratuit</span>
+</div>
+<div class="stat">
+<strong>Discret</strong>
+<span>Intervention respectueuse</span>
+</div>
+<div class="stat">
+<strong>Soigné</strong>
+<span>Résultat professionnel</span>
+</div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+<h2 class="section-title">Nos services</h2>
+<p class="section-subtitle">
+Nous proposons des prestations complètes pour les particuliers, les familles, les syndics et les professionnels.
+</p>
+
+<div class="grid-3">
+<article class="card service">
+<div class="icon">🏠</div>
+<h3>Débarras de maison</h3>
+<p>Nous vidons entièrement les maisons, appartements, caves, greniers, garages e
